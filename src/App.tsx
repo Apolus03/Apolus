@@ -138,7 +138,7 @@ const Hero = () => {
           </div>
 
           <h1 className="text-5xl lg:text-7xl font-display font-bold leading-[1.05] mb-6">
-            AAAAAAAAAAAAAAAAAATransformamos ideias em{' '}
+            Transformamos ideias em{' '}
             <span className="relative inline-block">
               <img
                 src="/img/font/e_font.png"
