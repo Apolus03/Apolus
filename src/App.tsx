@@ -138,7 +138,7 @@ const Hero = () => {
           </div>
 
           <h1 className="text-5xl lg:text-7xl font-display font-bold leading-[1.05] mb-6">
-            Transformamos ideias em{' '}
+            AAAAAAAAAAAAAAAAAATransformamos ideias em{' '}
             <span className="relative inline-block">
               <img
                 src="/img/font/e_font.png"
@@ -182,7 +182,7 @@ const Hero = () => {
           <div className="relative w-full max-w-md aspect-square">
             {/* PLANETA GIRANDO ATRÁS */}
             <motion.img
-              src="/img/apolus/Internet_trans.png"
+              src="/img/apolus/internet_trans.png"
               className="absolute top-3 left-[8px] w-full h-full object-contain z-0 opacity-50  drop-shadow-[0_0_20px_purple]"
               animate={{
                 rotate: -360,
@@ -739,7 +739,7 @@ const Contact = () => {
             _subject: `Contato site Apolus — ${formState.name.trim()}`,
             _captcha: false,
           }),
-        },
+        }
       );
       const data = (await res.json()) as {
         success?: string | boolean;
@@ -751,9 +751,12 @@ const Contact = () => {
           data.success === 'true' ||
           String(data.success).toLowerCase() === 'true');
       if (!accepted) {
-        const raw = typeof data.message === 'string' ? data.message : '';
+        const raw =
+          typeof data.message === 'string' ? data.message : '';
         if (/activation|activate form/i.test(raw)) {
-          throw new Error('ACTIVATION_PENDING');
+          throw new Error(
+            'ACTIVATION_PENDING'
+          );
         }
         if (/web server|html files/i.test(raw)) {
           throw new Error('OPEN_VIA_SERVER');
@@ -766,17 +769,19 @@ const Contact = () => {
     } catch (err) {
       if (err instanceof Error && err.message === 'ACTIVATION_PENDING') {
         setSubmitError(
-          'O formulário ainda não foi ativado. Abra o email que o FormSubmit enviou para apolus03@gmail.com, clique em “Activate Form” e tente de novo. Confira também lixo eletrônico.',
+          'O formulário ainda não foi ativado. Abra o email que o FormSubmit enviou para apolus03@gmail.com, clique em “Activate Form” e tente de novo. Confira também lixo eletrônico.'
         );
       } else if (err instanceof Error && err.message === 'OPEN_VIA_SERVER') {
         setSubmitError(
-          'Abra o site pelo endereço do servidor (npm run dev ou o link de hospedagem), não abra o arquivo HTML direto no disco.',
+          'Abra o site pelo endereço do servidor (npm run dev ou o link de hospedagem), não abra o arquivo HTML direto no disco.'
         );
       } else {
         const hint =
-          err instanceof Error && err.message ? ` (${err.message})` : '';
+          err instanceof Error && err.message
+            ? ` (${err.message})`
+            : '';
         setSubmitError(
-          `Não foi possível enviar agora.${hint} Tente de novo ou fale pelo WhatsApp.`,
+          `Não foi possível enviar agora.${hint} Tente de novo ou fale pelo WhatsApp.`
         );
       }
     } finally {
@@ -858,9 +863,7 @@ const Contact = () => {
                   aria-invalid={Boolean(fieldErrors.name)}
                 />
                 {fieldErrors.name && (
-                  <p className="mt-1.5 text-sm text-red-400">
-                    {fieldErrors.name}
-                  </p>
+                  <p className="mt-1.5 text-sm text-red-400">{fieldErrors.name}</p>
                 )}
               </div>
               <div>
@@ -883,9 +886,7 @@ const Contact = () => {
                   aria-invalid={Boolean(fieldErrors.email)}
                 />
                 {fieldErrors.email && (
-                  <p className="mt-1.5 text-sm text-red-400">
-                    {fieldErrors.email}
-                  </p>
+                  <p className="mt-1.5 text-sm text-red-400">{fieldErrors.email}</p>
                 )}
               </div>
               <div>
@@ -1056,7 +1057,6 @@ export default function App() {
       <About />
       <Services />
       <Portfolio />
-      <Testimonials />
       <Process />
       <Contact />
       <Footer />
