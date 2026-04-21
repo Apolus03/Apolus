@@ -507,30 +507,13 @@ const Services = () => {
 const Portfolio = () => {
   const projects = [
     {
-      title: 'Vitor Araujo Advogado',
-      category: 'Site Institucional',
+      title: 'Vitor Araujo Sociedade Individual de Advogacia',
+      category: 'Landing Page',
       image:
-        'https://ldjadvocacia.com.br/wp-content/uploads/2022/11/lady-justice-law-library-concept-1-2048x1365.jpg',
-      link: '#',
+        '/img/portf/portf_1.png',
+      link: 'https://victor-araujo-advogado.vercel.app/',
     },
-    {
-      title: 'Garimpo',
-      category: 'Aplicação Web',
-      image: 'https://picsum.photos/seed/eco/800/600',
-      link: '#',
-    },
-    {
-      title: 'CryptoVault App',
-      category: 'Mobile / Fintech',
-      image: 'https://picsum.photos/seed/crypto/800/600',
-      link: '#',
-    },
-    {
-      title: 'Aura E-commerce',
-      category: 'Development',
-      image: 'https://picsum.photos/seed/aura/800/600',
-      link: '#',
-    },
+
   ];
 
   return (
@@ -553,26 +536,29 @@ const Portfolio = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, i) => (
-            <motion.div
+            <motion.a
               key={i}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group relative overflow-hidden rounded-3xl aspect-video cursor-pointer"
+              className="group relative overflow-hidden rounded-3xl aspect-video cursor-pointer block"
             >
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                referrerPolicy="no-referrer"
               />
+
               <div className="absolute inset-0 bg-gradient-to-t from-apolus-black via-apolus-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
                 <span className="text-apolus-green text-xs font-bold uppercase tracking-widest mb-2">
                   {project.category}
                 </span>
                 <h3 className="text-2xl font-bold">{project.title}</h3>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>
